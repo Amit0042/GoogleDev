@@ -8,8 +8,30 @@ searchInput.addEventListener("keydown", function(event) {
 });
 
 // search functionality
-function search() {
-    const input = searchInput.value;
 
-    window.location.href = "https://www.google.com/search?q=" + input + "&rlz=1C5CHFA_enNZ948NZ948&oq=" + input + "&aqs=chrome.0.69i59l2j46i175i199i433j46i199i291i433j46j0i433j0j69i60.875j0j9&sourceid=chrome&ie=UTF-8"
+const  search=async() =>{
+    const input = await searchInput.value;
+    const arrWords = [];
+    var word = [];
+
+    for (let i = 0; i < input.length; i++) {
+        if (input[i] !== ' ') {
+            word.push(input[i]);
+        } else {
+            arrWords.push(word.join(''));
+            word = [];
+        }
+    }
+
+    if (word.length > 0) {
+        arrWords.push(word.join(''));
+    }
+
+    var finalSearch = `https://www.google.com/search?q=${encodeURIComponent(arrWords[0])}`;
+
+    for (let i = 1; i < arrWords.length; i++) {
+        finalSearch += `+${encodeURIComponent(arrWords[i])}`;
+    }
+
+    window.location.href = finalSearch;
 }
