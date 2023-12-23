@@ -5,7 +5,7 @@
 This project is a clone of the Google search page implemented using HTML, CSS, and JavaScript. It mimics the basic functionality and appearance of the Google search page.
 
 ## Screenshots
-
+![Google Clone](images/ScreenShot.png?raw=true "Google Clone")
 <!-- Add more screenshots if needed -->
 ## Contributing
 If you want to contribute to this project, follow these steps:
